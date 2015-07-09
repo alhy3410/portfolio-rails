@@ -1,0 +1,17 @@
+<h1>Welcome to my Portfolio</h1>
+
+<% if current_user %>
+  <p>
+    Logged in as current user: <%= current_user.email %>
+    <br>
+    Admin? : <%= current_user.admin %>
+
+    <% if current_user.admin == 't'  %>
+      <p>
+        testing is admin
+      </p>
+    <% end %>
+
+
+    </p>
+<% end %>
