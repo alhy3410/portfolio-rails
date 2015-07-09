@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'simplecov', require: false
 
 group :development do
   gem 'byebug'
