@@ -11,6 +11,11 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'simplecov', require: false
 
+#needed for windows and mysql database
+gem 'mysql2'
+gem 'tzinfo-data'
+
+
 group :development do
   gem 'byebug'
   gem 'web-console'
