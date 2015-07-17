@@ -8,33 +8,31 @@ class CommentsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @comment = @project.comments.new(reference_params)
+    @comment = @project.comments.new(comment_params)
     if @comment.save
       respond_to do |format|
-        format.html {redirect_to project_path(@project) }
+        format.html { redirect_to project_path(@project) }
         format.js
       end
-    else
-      redirect_to :back
     end
   end
 
   def edit
     @project = Project.find(params[:id])
-    @comment = Reference.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def destroy
     @project = Project.find(params[:project_id])
-    @comment = Reference.find(params[:id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to project_path(@project)
   end
 
   def update
     @project = Project.find(params[:project_id])
-    @comment = Reference.find(params[:id])
-    if @comment.update(reference_params)
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
       redirect_to project_path(@project, @comment)
     else
       render :edit
@@ -42,7 +40,7 @@ class CommentsController < ApplicationController
   end
 
   private
-  def reference_params
+  def comment_params
     params.require(:comment).permit(:name, :comment)
   end
 end
