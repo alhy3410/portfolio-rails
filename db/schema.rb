@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20150716210209) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "name"
-    t.string "comment"
-    t.string "project_id"
+    t.string  "name"
+    t.string  "comment"
+    t.integer "project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20150716210209) do
   end
 
   create_table "references", force: :cascade do |t|
-    t.string "name"
-    t.string "refernce"
-    t.string "project_id"
+    t.string  "name"
+    t.string  "refernce"
+    t.integer "project_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -21,6 +21,7 @@
       <% @category.projects.each do |project| %>
       <li>
         <%= project.name %> | <%= project.description %>
+        <%= link_to project.name, project_path(project) %>
 
         <% if @category.user == current_user || current_user.admin == 't'  %>
           [<%= link_to 'Edit', edit_category_project_path(@category, project) %> ||

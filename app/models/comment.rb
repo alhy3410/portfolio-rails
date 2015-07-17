@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :Project
+  belongs_to :project
 
   validates :name, :presence => true
   validates :comment, :presence => true

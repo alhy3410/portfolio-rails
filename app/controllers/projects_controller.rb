@@ -7,13 +7,20 @@ class ProjectsController < ApplicationController
     @project = @category.projects.new
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def create
     @category = Category.find(params[:category_id])
     @project = @category.projects.new(project_params)
     if @project.save
-      redirect_to category_path(@project.category)
+      respond_to do |format|
+        format.html { redirect_to projects_path(@project.category) }
+        format.js
+      end
     else
-      render :new
+      redirect_to :back
     end
   end
 

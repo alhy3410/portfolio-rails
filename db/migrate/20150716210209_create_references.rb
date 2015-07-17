@@ -3,7 +3,7 @@ class CreateReferences < ActiveRecord::Migration
     create_table :references do |t|
       t.string :name
       t.string :refernce
-      t.string :project_id
+      t.integer :project_id
     end
   end
 end
