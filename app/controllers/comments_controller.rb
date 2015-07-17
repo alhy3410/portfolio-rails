@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @comment = @project.comments.new(comment_params)
+    @comment = @project.comments.create!(comment_params)
     if @comment.save
       respond_to do |format|
         format.html { redirect_to project_path(@project) }

@@ -15,10 +15,7 @@ class ProjectsController < ApplicationController
     @category = Category.find(params[:category_id])
     @project = @category.projects.new(project_params)
     if @project.save
-      respond_to do |format|
-        format.html { redirect_to category_path(@category) }
-        format.js
-      end
+      redirect_to category_path(@category)
     else
       redirect_to :back
     end
