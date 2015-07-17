@@ -10,7 +10,10 @@ class CommentsController < ApplicationController
     @project = Project.find(params[:project_id])
     @comment = @project.comments.new(reference_params)
     if @comment.save
-     redirect_to project_path(@project)
+      respond_to do |format|
+        format.html {redirect_to project_path(@project) }
+        format.js
+      end
     else
       redirect_to :back
     end
