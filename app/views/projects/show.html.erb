@@ -6,7 +6,7 @@
   <% if @project.comments.any? %>
     <h4>Comments for <%= @project.name %> </h4>
 
-    <ul>
+    <ul class="commenttable">
       <% @project.comments.each do |comment| %>
       <li>
         <%= comment.name %> | <%= comment.comment %>
